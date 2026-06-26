@@ -1,0 +1,52 @@
+services:
+
+  postgres:
+    image: postgres:17
+    container_name: payment-postgres
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: payment
+      POSTGRES_USER: payment_user
+      POSTGRES_PASSWORD: payment_password
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+    networks:
+      - payment-network
+
+
+  redis:
+    image: redis:7
+    container_name: payment-redis
+    restart: unless-stopped
+
+    command: redis-server --requirepass redis_password
+
+    ports:
+      - "6379:6379"
+
+    volumes:
+      - redis_data:/data
+
+    networks:
+      - payment-network
+
+
+volumes:
+
+  postgres_data:
+    name: payment_postgres_data
+
+  redis_data:
+    name: payment_redis_data
+
+
+networks:
+
+  payment-network:
+    name: payment-network

@@ -1,6 +1,6 @@
 CREATE TABLE payments
 (
-    id          UUID PRIMARY KEY,
+    id         UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     sender_id   UUID           NOT NULL,
     receiver_id UUID           NOT NULL,
     amount      NUMERIC(19, 2) NOT NULL,

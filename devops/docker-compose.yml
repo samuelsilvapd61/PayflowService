@@ -1,7 +1,7 @@
 services:
 
   postgres:
-    image: postgres:17
+    image: postgres:18.4
     container_name: payment-postgres
     restart: unless-stopped
 
@@ -14,14 +14,14 @@ services:
       - "5432:5432"
 
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql
 
     networks:
       - payment-network
 
 
   redis:
-    image: redis:7
+    image: redis:8.8.0
     container_name: payment-redis
     restart: unless-stopped
 

@@ -6,9 +6,9 @@ spring:
     name: payment
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/payment
-    username: payment_user
-    password: payment_password
+    url: ${DATABASE_URL:jdbc:postgresql://host.docker.internal:5432/payment}
+    username: ${DATABASE_USERNAME:payment_user}
+    password: ${DATABASE_PASSWORD:payment_password}
     driver-class-name: org.postgresql.Driver
 
   flyway:
@@ -17,10 +17,6 @@ spring:
 
   data:
     redis:
-      host: localhost
-      port: 6379
-      password: redis_password
-
-logging:
-  level:
-    org.flywaydb: DEBUG
+      host: ${REDIS_HOST:host.docker.internal}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:redis_password}

@@ -1,17 +1,17 @@
 package com.samuel.payment.service;
 
 import com.samuel.payment.domain.request.CustomerRequest;
-import com.samuel.payment.jooq.tables.records.CustomersRecord;
+import com.samuel.payment.domain.response.CustomerResponse;
 
 import java.math.BigDecimal;
 import java.util.UUID;
 
 public interface CustomerService {
 
-    CustomersRecord findById(UUID id);
+    CustomerResponse findById(UUID id);
 
-    CustomersRecord createCustomer(CustomerRequest request);
+    CustomerResponse createCustomer(CustomerRequest request);
 
-    CustomersRecord addUserBalance(UUID id, BigDecimal amount);
+    CustomerResponse addUserBalance(UUID id, BigDecimal amount);
 
 }

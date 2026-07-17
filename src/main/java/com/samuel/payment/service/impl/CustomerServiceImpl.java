@@ -38,13 +38,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public CustomerResponse createCustomer(CustomerRequest request) {
-
         var newCustomer = customerRepository.createCustomer(request.name(), request.email());
-
-        if (newCustomer == null) {
-            throw new RuntimeException("Customer not found");
-        }
-
         return toCustomerResponse(newCustomer);
     }
 

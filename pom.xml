@@ -102,10 +102,23 @@
             <scope>compile</scope>
         </dependency>
 
+        <!-- Exposing metrics to Prometheus-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-java21</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
-
 
         <plugins>
             <plugin>
@@ -169,7 +182,7 @@
                 <artifactId>flyway-maven-plugin</artifactId>
 
                 <configuration>
-                    <url>jdbc:postgresql://host.docker.internal:5432/payment</url>
+                    <url>jdbc:postgresql://localhost:5432/payment</url>
                     <user>payment_user</user>
                     <password>payment_password</password>
                 </configuration>
@@ -195,7 +208,7 @@
                 <configuration>
                     <jdbc>
                         <driver>org.postgresql.Driver</driver>
-                        <url>jdbc:postgresql://host.docker.internal:5432/payment</url>
+                        <url>jdbc:postgresql://localhost:5432/payment</url>
                         <user>payment_user</user>
                         <password>payment_password</password>
                     </jdbc>

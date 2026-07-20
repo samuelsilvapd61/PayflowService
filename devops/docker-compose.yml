@@ -1,4 +1,26 @@
+name: payment-service
+
 services:
+  api:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+
+    container_name: payment-api
+    restart: unless-stopped
+
+    ports:
+      - "8888:8888"
+
+    env_file:
+      - .env
+
+    depends_on:
+      - postgres
+      - redis
+
+    networks:
+      - payment-network
 
   postgres:
     image: postgres:18.4
@@ -46,6 +68,7 @@ services:
 
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
 
     networks:
       - payment-network
@@ -79,6 +102,9 @@ volumes:
 
   grafana_data:
     name: payment_grafana_data
+
+  prometheus_data:
+    name: payment_prometheus_data
 
 
 networks:

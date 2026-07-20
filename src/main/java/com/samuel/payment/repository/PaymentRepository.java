@@ -1,6 +1,6 @@
 package com.samuel.payment.repository;
 
-import com.samuel.payment.jooq.tables.records.PaymentsRecord;
+import com.samuel.payment.generated.jooq.tables.records.PaymentsRecord;
 import com.samuel.payment.utils.enums.PaymentStatus;
 import lombok.RequiredArgsConstructor;
 import org.jooq.DSLContext;
@@ -11,7 +11,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
-import static com.samuel.payment.jooq.Tables.PAYMENTS;
+import static com.samuel.payment.generated.jooq.Tables.PAYMENTS;
 import static java.time.LocalDateTime.now;
 
 

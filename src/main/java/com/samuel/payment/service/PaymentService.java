@@ -1,7 +1,7 @@
 package com.samuel.payment.service;
 
 import com.samuel.payment.domain.request.PaymentRequest;
-import com.samuel.payment.jooq.tables.records.PaymentsRecord;
+import com.samuel.payment.generated.jooq.tables.records.PaymentsRecord;
 
 import java.time.LocalDate;
 import java.util.List;

@@ -2,7 +2,7 @@ package com.samuel.payment.service.impl;
 
 import com.samuel.payment.domain.request.PaymentRequest;
 import com.samuel.payment.domain.response.CustomerResponse;
-import com.samuel.payment.jooq.tables.records.PaymentsRecord;
+import com.samuel.payment.generated.jooq.tables.records.PaymentsRecord;
 import com.samuel.payment.repository.PaymentRepository;
 import com.samuel.payment.service.CustomerService;
 import com.samuel.payment.service.PaymentService;

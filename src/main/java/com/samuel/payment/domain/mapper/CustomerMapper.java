@@ -1,7 +1,7 @@
 package com.samuel.payment.domain.mapper;
 
 import com.samuel.payment.domain.response.CustomerResponse;
-import com.samuel.payment.jooq.tables.records.CustomersRecord;
+import com.samuel.payment.generated.jooq.tables.records.CustomersRecord;
 
 public class CustomerMapper {
 

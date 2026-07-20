@@ -1,6 +1,6 @@
 package com.samuel.payment.repository;
 
-import com.samuel.payment.jooq.tables.records.CustomersRecord;
+import com.samuel.payment.generated.jooq.tables.records.CustomersRecord;
 import lombok.RequiredArgsConstructor;
 import org.jooq.DSLContext;
 import org.springframework.stereotype.Repository;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.math.BigDecimal;
 import java.util.UUID;
 
-import static com.samuel.payment.jooq.Tables.CUSTOMERS;
+import static com.samuel.payment.generated.jooq.Tables.CUSTOMERS;
 import static java.time.LocalDateTime.now;
 
 

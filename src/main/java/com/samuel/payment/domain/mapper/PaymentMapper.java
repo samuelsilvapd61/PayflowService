@@ -1,7 +1,7 @@
 package com.samuel.payment.domain.mapper;
 
 import com.samuel.payment.domain.response.PaymentResponse;
-import com.samuel.payment.jooq.tables.records.PaymentsRecord;
+import com.samuel.payment.generated.jooq.tables.records.PaymentsRecord;
 
 import java.util.List;
 

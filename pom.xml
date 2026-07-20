@@ -28,6 +28,10 @@
     </scm>
     <properties>
         <java.version>25</java.version>
+
+        <database.url>jdbc:postgresql://localhost:5432/payment</database.url>
+        <database.username>payment_user</database.username>
+        <database.password>payment_password</database.password>
     </properties>
     <dependencies>
         <dependency>
@@ -192,9 +196,9 @@
                 <artifactId>flyway-maven-plugin</artifactId>
 
                 <configuration>
-                    <url>jdbc:postgresql://localhost:5432/payment</url>
-                    <user>payment_user</user>
-                    <password>payment_password</password>
+                    <url>${database.url}</url>
+                    <user>${database.username}</user>
+                    <password>${database.password}</password>
                 </configuration>
             </plugin>
 
@@ -205,22 +209,22 @@
                 <artifactId>jooq-codegen-maven</artifactId>
                 <version>3.21.5</version>
 
-                <executions>
-                    <execution>
-                        <id>generate-jooq</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                    </execution>
-                </executions>
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>generate-jooq</id>-->
+<!--                        <phase>generate-sources</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>generate</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
 
                 <configuration>
                     <jdbc>
                         <driver>org.postgresql.Driver</driver>
-                        <url>jdbc:postgresql://localhost:5432/payment</url>
-                        <user>payment_user</user>
-                        <password>payment_password</password>
+                        <url>${database.url}</url>
+                        <user>${database.username}</user>
+                        <password>${database.password}</password>
                     </jdbc>
 
                     <generator>
@@ -230,11 +234,11 @@
 
                         <target>
                             <packageName>
-                                com.samuel.payment.jooq
+                                com.samuel.payment.generated.jooq
                             </packageName>
 
                             <directory>
-                                target/generated-sources/jooq
+                                src/main/java
                             </directory>
                         </target>
                     </generator>

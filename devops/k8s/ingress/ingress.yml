@@ -1,0 +1,51 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+
+metadata:
+  name: payment-api-ingress
+
+spec:
+  ingressClassName: nginx
+
+  rules:
+    - host: payment.local
+
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+
+            backend:
+              service:
+                name: payment-api-service
+
+                port:
+                  number: 8888
+
+    - host: prometheus.local
+
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+
+            backend:
+              service:
+                name: prometheus-service
+
+                port:
+                  number: 9090
+
+    - host: grafana.local
+
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+
+            backend:
+              service:
+                name: grafana-service
+
+                port:
+                  number: 3000

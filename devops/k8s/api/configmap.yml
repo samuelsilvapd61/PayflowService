@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  name: payment-config
+
+data:
+  DATABASE_URL: jdbc:postgresql://postgres-service:5432/payment
+  DATABASE_USERNAME: payment_user
+
+  REDIS_HOST: redis-service
+  REDIS_PORT: "6379"

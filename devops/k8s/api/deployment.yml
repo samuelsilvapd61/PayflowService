@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: payment-api
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: payment-api
+
+  template:
+    metadata:
+      labels:
+        app: payment-api
+
+    spec:
+      containers:
+        - name: payment-api
+          image: payment-service-api:latest
+          imagePullPolicy: IfNotPresent
+
+          ports:
+            - containerPort: 8888
+
+          envFrom:
+            - configMapRef:
+                name: payment-config
+
+            - secretRef:
+                name: payment-secret
+
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "512Mi"
+
+            limits:
+              cpu: "1000m"
+              memory: "1Gi"
+
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: 8888
+
+            initialDelaySeconds: 30
+            periodSeconds: 10
+
+          readinessProbe:
+            httpGet:
+              path: /actuator/health/readiness
+              port: 8888
+
+            initialDelaySeconds: 10
+            periodSeconds: 5

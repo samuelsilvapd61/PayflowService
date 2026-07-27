@@ -53,7 +53,7 @@ I created a YouTube playlist where I explain the project, show how everything wo
 
 📺 **Playlist:**
 
-> Add the YouTube playlist link here.
+> [Playlist on YouTube](https://www.youtube.com/playlist?list=PLH7LsNuaYQG8)
 
 The videos cover topics like:
 - Project architecture
@@ -63,3 +63,10 @@ The videos cover topics like:
 - Monitoring with Prometheus and Grafana
 - Load testing with k6
 - Running the project locally
+
+---
+
+## Useful files
+
+[Presentation.pptx](https://github.com/user-attachments/files/30433834/Presentation.pptx)
+
